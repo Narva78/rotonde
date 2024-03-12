@@ -21,10 +21,9 @@
         </div>
       </nav>
     </header>
-
     <div class="contact">
       <div class="contact__card" data-tilt>
-        <h4>Réseau</h4>
+        <h4>Support</h4>
         <div class="contact__card__info">
           <div class="contact__card__info__name">
             <p>Noe Nyankam</p>
@@ -64,11 +63,12 @@
 
     <!-- 2e NavBar -->
     <nav class="menu">
-      <div class="menu__item codir active">
+      <!-- Codir -->
+      <div class="menu__item active">
         <div class="menu__item__text">
           <a href="#">Codir</a>
         </div>
-        <div class="sub-menu">
+        <div class="sub-menu" id="codir-submenu">
           <div class="box">
             <a href="#">Codir</a>
             <a href="#">Collectif Traction Produit Train</a>
@@ -83,6 +83,7 @@
         </div>
       </div>
 
+      <!-- Qualité et sécurité-->
       <div class="menu__item">
         <div class="menu__item__text">
           <a href="#">Qualité Sécurité</a>
@@ -102,7 +103,122 @@
           </div>
         </div>
       </div>
+
+      <!-- Proximités -->
+      <div class="menu__item">
+        <div class="menu__item__text">
+          <a href="#">Proximités</a>
+        </div>
+        <div class="sub-menu">
+          <div class="box">
+            <a href="#">Lien 1 Proximités</a>
+            <a href="#">Lien 2 Proximités</a>
+          </div>
+          <div class="box">
+            <a href="#">Lien 3 Proximités</a>
+            <a href="#">Lien 4 Proximités</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Direction -->
+      <div class="menu__item">
+        <div class="menu__item__text">
+          <a href="#">Direction</a>
+        </div>
+        <div class="sub-menu">
+          <div class="box">
+            <a href="#">Lien 1 Direction</a>
+            <a href="#">Lien 2 Direction</a>
+          </div>
+          <div class="box">
+            <a href="#">Lien 3 Direction</a>
+            <a href="#">Lien 4 Direction</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formation -->
+      <div class="menu__item">
+        <div class="menu__item__text">
+          <a href="#">Formation</a>
+        </div>
+        <div class="sub-menu">
+          <div class="box">
+            <a href="#">Lien 1 Formation</a>
+            <a href="#">Lien 2 Formation</a>
+          </div>
+          <div class="box">
+            <a href="#">Lien 3 Formation</a>
+            <a href="#">Lien 4 Formation</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Voyages -->
+      <div class="menu__item">
+        <div class="menu__item__text">
+          <a href="#">Voyages</a>
+        </div>
+        <div class="sub-menu">
+          <div class="box">
+            <a href="#">Lien 1 Voyages</a>
+            <a href="#">Lien 2 Voyages</a>
+          </div>
+          <div class="box">
+            <a href="#">Lien 3 Voyages</a>
+            <a href="#">Lien 4 Voyages</a>
+          </div>
+        </div>
+      </div>
     </nav>
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p>PMP Pôle Informatique - Paris Vaugirard</p>
+      </div>
+    </footer>
+
     <script type="text/javascript" src="vanilla-tilt.js"></script>
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', (event) => {
+        document.getElementById('codir-submenu').style.display = 'flex'
+      })
+      document.addEventListener('DOMContentLoaded', function () {
+        // Cibler tous les éléments de menu
+        const menuItems = document.querySelectorAll('.menu__item')
+        const codirSubmenu = document.getElementById('codir-submenu')
+
+        // Fonction pour masquer le sous-menu "Codir"
+        function hideCodirSubmenu() {
+          codirSubmenu.style.display = 'none'
+        }
+
+        // Fonction pour afficher le sous-menu "Codir"
+        function showCodirSubmenu() {
+          codirSubmenu.style.display = 'flex'
+        }
+
+        // Ajouter un événement de survol à chaque élément de menu
+        menuItems.forEach(function (item) {
+          item.addEventListener('mouseover', function () {
+            // Vérifie si l'élément survolé est "Codir"
+            if (
+              this.querySelector('.menu__item__text a').textContent === 'Codir'
+            ) {
+              showCodirSubmenu()
+            } else {
+              hideCodirSubmenu()
+            }
+          })
+        })
+
+        // Ajouter un événement pour afficher le sous-menu "Codir" lorsque la souris quitte les éléments de menu
+        document
+          .querySelector('.menu')
+          .addEventListener('mouseleave', function () {
+            showCodirSubmenu() // Affiche "Codir" par défaut lorsque la souris quitte la zone du menu
+          })
+      })
+    </script>
   </body>
 </html>
